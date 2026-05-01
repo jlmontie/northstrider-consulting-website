@@ -1,0 +1,77 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import CTABand from "../components/CTABand.astro";
+
+// TODO: Pare this list to the 1-3 verticals the client actually wants to win in.
+// Niche positioning is the single biggest growth lever for small Salesforce shops.
+const industries = [
+  {
+    name: "Professional Services",
+    why: "Project pipelines, utilization, and client comms — wired into one source of truth.",
+    typicalWork: "Sales Cloud + custom project objects, time tracking integrations, renewal automation.",
+  },
+  {
+    name: "Financial Services",
+    why: "Compliant pipelines, household and relationship modeling, advisor productivity.",
+    typicalWork: "Financial Services Cloud, document workflows, structured data security.",
+  },
+  {
+    name: "Nonprofit",
+    why: "Donor journeys, grant management, and program reporting that actually answers the board.",
+    typicalWork: "NPSP / Nonprofit Cloud, donation flows, recurring giving, impact dashboards.",
+  },
+  {
+    name: "Manufacturing & Distribution",
+    why: "Long sales cycles, configured products, and partner channels — without spreadsheet handoffs.",
+    typicalWork: "Sales Cloud, CPQ basics, inventory and ERP integrations.",
+  },
+];
+---
+
+<BaseLayout
+  title="Industries — Northstrider Consulting"
+  description="Salesforce consulting for professional services, financial services, nonprofit, and manufacturing teams."
+>
+  <PageHeader
+    eyebrow="Industries"
+    title="Generalist enough to listen. Specialized enough to deliver."
+    lede="We focus where the work compounds — verticals where we've seen the patterns, the data model traps, and what 'good' actually looks like."
+  />
+
+  <section class="section">
+    <div class="mx-auto w-full max-w-5xl px-5 sm:px-8">
+      <div class="grid gap-px overflow-hidden rounded border border-[color:var(--color-rule)] bg-[color:var(--color-rule)] sm:grid-cols-2">
+        {
+          industries.map((ind) => (
+            <article class="bg-[color:var(--color-cream)] p-8">
+              <h2 class="text-2xl">{ind.name}</h2>
+              <span class="rule-divider mt-4"></span>
+              <p class="mt-5 text-sm leading-relaxed text-[color:var(--color-ink-2)]">
+                <span class="font-medium text-[color:var(--color-ink)]">Why we work here. </span>
+                {ind.why}
+              </p>
+              <p class="mt-3 text-sm leading-relaxed text-[color:var(--color-ink-muted)]">
+                <span class="font-medium text-[color:var(--color-ink)]">Typical engagement. </span>
+                {ind.typicalWork}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="mt-10 rounded border border-dashed border-[color:var(--color-rule)] bg-[color:var(--color-cream-2)] p-6 text-sm text-[color:var(--color-ink-muted)]">
+        <p>
+          <strong class="text-[color:var(--color-ink)]">Note for the client.</strong>
+          Verticalization is the highest-leverage positioning decision for a small Salesforce shop. Pick one or two industries to lead with and demote the rest.
+          <!-- TODO: Confirm vertical focus and prune this list. -->
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    heading="Working in one of these spaces?"
+    body="Tell us where you are today and where you're trying to get to. We'll come back with a candid read on the work."
+  />
+</BaseLayout>

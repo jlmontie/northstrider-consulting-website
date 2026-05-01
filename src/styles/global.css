@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+@theme {
+  /* Northstrider palette — light cream/ink/gold */
+  --color-cream: #FBFAF5;
+  --color-cream-2: #F5F0E3;
+  --color-paper: #F0E9D6;
+  --color-ink: #0E1726;
+  --color-ink-2: #2A3447;
+  --color-ink-muted: #58627A;
+  --color-gold: #B8923A;
+  --color-gold-bright: #D4A841;
+  --color-gold-soft: #E8D9A8;
+  --color-rule: #D9CDA9;
+
+  /* Typography */
+  --font-display: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Container */
+  --container-prose: 68ch;
+
+  /* Easing */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Base reset / global treatments */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+    color: var(--color-ink);
+  }
+
+  h1 {
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+  }
+
+  h2 {
+    font-variation-settings: "opsz" 96, "SOFT" 30;
+  }
+
+  ::selection {
+    background: var(--color-gold-soft);
+    color: var(--color-ink);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+/* Reusable component classes */
+@layer components {
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 1.5rem;
+    height: 1px;
+    background: var(--color-gold);
+  }
+
+  .rule-divider {
+    display: block;
+    width: 3.5rem;
+    height: 1px;
+    background: var(--color-gold);
+    margin: 1.25rem 0;
+  }
+
+  .rule-divider-center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    border-radius: 2px;
+    transition: transform 240ms var(--ease-out-soft), background-color 200ms, color 200ms, border-color 200ms;
+    cursor: pointer;
+    line-height: 1;
+    border: 1px solid transparent;
+  }
+
+  .btn-primary {
+    background: var(--color-ink);
+    color: var(--color-cream);
+    border-color: var(--color-ink);
+  }
+  .btn-primary:hover {
+    background: var(--color-ink-2);
+    border-color: var(--color-ink-2);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-ink);
+    border-color: var(--color-ink);
+  }
+  .btn-ghost:hover {
+    background: var(--color-ink);
+    color: var(--color-cream);
+  }
+
+  .btn-gold {
+    background: transparent;
+    color: var(--color-ink);
+    border-color: var(--color-gold);
+  }
+  .btn-gold:hover {
+    background: var(--color-gold);
+    color: var(--color-ink);
+  }
+
+  .link-underline {
+    position: relative;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    transition: background-size 240ms var(--ease-out-soft);
+  }
+  .link-underline:hover {
+    background-size: 0 1px;
+  }
+
+  .card {
+    position: relative;
+    background: var(--color-cream);
+    border: 1px solid var(--color-rule);
+    padding: 2rem;
+    transition: border-color 200ms, transform 240ms var(--ease-out-soft), box-shadow 240ms var(--ease-out-soft);
+  }
+  .card:hover {
+    border-color: var(--color-gold);
+  }
+
+  .section {
+    padding-block: clamp(4rem, 8vw, 7rem);
+  }
+
+  .container-x {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  /* Subtle constellation background pattern (decorative) */
+  .bg-constellation {
+    background-image:
+      radial-gradient(circle at 14% 22%, rgba(184, 146, 58, 0.18) 0 1.2px, transparent 1.6px),
+      radial-gradient(circle at 78% 14%, rgba(184, 146, 58, 0.15) 0 1px, transparent 1.4px),
+      radial-gradient(circle at 42% 78%, rgba(184, 146, 58, 0.20) 0 1.4px, transparent 1.8px),
+      radial-gradient(circle at 88% 62%, rgba(184, 146, 58, 0.12) 0 0.9px, transparent 1.3px),
+      radial-gradient(circle at 26% 56%, rgba(184, 146, 58, 0.14) 0 1px, transparent 1.4px);
+    background-size: 100% 100%;
+  }
+}

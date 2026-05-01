@@ -1,0 +1,19 @@
+---
+import StarMark from "./StarMark.astro";
+interface Props {
+  href?: string;
+  size?: "sm" | "md";
+}
+const { href = "/", size = "md" } = Astro.props;
+const starSize = size === "sm" ? 22 : 28;
+---
+
+<a href={href} class="inline-flex items-center gap-3 group" aria-label="Northstrider Consulting — home">
+  <StarMark size={starSize} variant="gold" />
+  <span
+    class="font-[Fraunces,serif] text-[1.15rem] tracking-tight text-[color:var(--color-ink)] leading-none"
+    style="font-variation-settings: 'opsz' 24, 'SOFT' 30;"
+  >
+    <span class="font-medium">North</span><span class="font-normal italic">strider</span>
+  </span>
+</a>

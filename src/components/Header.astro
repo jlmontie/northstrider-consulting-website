@@ -1,0 +1,81 @@
+---
+import Logo from "./Logo.astro";
+import Button from "./Button.astro";
+
+const nav = [
+  { href: "/services", label: "Services" },
+  { href: "/industries", label: "Industries" },
+  { href: "/case-studies", label: "Case Studies" },
+  { href: "/about", label: "About" },
+];
+
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+---
+
+<header class="sticky top-0 z-40 border-b border-[color:var(--color-rule)] bg-[color:var(--color-cream)]/85 backdrop-blur supports-[backdrop-filter]:bg-[color:var(--color-cream)]/70">
+  <div class="mx-auto w-full max-w-7xl px-5 sm:px-8">
+    <div class="flex h-16 items-center justify-between gap-6">
+      <Logo />
+      <nav class="hidden md:block" aria-label="Primary">
+        <ul class="flex items-center gap-8 text-sm">
+          {
+            nav.map((item) => {
+              const active = path === item.href || path.startsWith(item.href + "/");
+              return (
+                <li>
+                  <a
+                    href={item.href}
+                    class={`link-underline transition-colors ${active ? "text-[color:var(--color-gold)]" : "text-[color:var(--color-ink-2)] hover:text-[color:var(--color-ink)]"}`}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </nav>
+      <div class="hidden md:block">
+        <Button href="/contact" variant="ghost">Schedule a Consultation</Button>
+      </div>
+
+      <button
+        type="button"
+        id="mobile-nav-toggle"
+        aria-controls="mobile-nav"
+        aria-expanded="false"
+        class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded border border-[color:var(--color-rule)]"
+      >
+        <span class="sr-only">Toggle menu</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <line x1="4" y1="7" x2="20" y2="7" />
+          <line x1="4" y1="12" x2="20" y2="12" />
+          <line x1="4" y1="17" x2="20" y2="17" />
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-nav" hidden class="md:hidden pb-4">
+      <ul class="flex flex-col gap-1 border-t border-[color:var(--color-rule)] pt-4">
+        {
+          nav.map((item) => (
+            <li>
+              <a href={item.href} class="block py-2 text-base text-[color:var(--color-ink-2)]">{item.label}</a>
+            </li>
+          ))
+        }
+        <li class="pt-2"><a href="/contact" class="btn btn-ghost w-fit">Schedule a Consultation</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("mobile-nav-toggle");
+  const panel = document.getElementById("mobile-nav");
+  btn?.addEventListener("click", () => {
+    const open = btn.getAttribute("aria-expanded") === "true";
+    btn.setAttribute("aria-expanded", String(!open));
+    if (panel) panel.hidden = open;
+  });
+</script>

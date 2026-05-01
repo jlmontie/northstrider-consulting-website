@@ -1,0 +1,36 @@
+---
+import Button from "./Button.astro";
+import StarMark from "./StarMark.astro";
+
+interface Props {
+  heading?: string;
+  body?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+}
+
+const {
+  heading = "Plot the route together.",
+  body = "Tell us about the org you're running, the goals you're chasing, and the friction in the way. We'll come back with a candid read.",
+  primaryLabel = "Schedule a 30-minute consultation",
+  primaryHref = "/contact",
+} = Astro.props;
+---
+
+<section class="section relative overflow-hidden bg-[color:var(--color-ink)] text-[color:var(--color-cream)]">
+  <div class="bg-constellation absolute inset-0 opacity-60"></div>
+  <div class="relative mx-auto w-full max-w-5xl px-5 sm:px-8 text-center">
+    <StarMark size={36} variant="gold" class="mx-auto" />
+    <h2 class="mt-6 text-3xl sm:text-4xl md:text-5xl text-[color:var(--color-cream)]">{heading}</h2>
+    <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[color:var(--color-cream)]/75">{body}</p>
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+      <a href={primaryHref} class="btn" style="background: var(--color-gold); color: var(--color-ink); border-color: var(--color-gold);">
+        {primaryLabel}
+        <span aria-hidden="true">→</span>
+      </a>
+      <a href="mailto:team@northstriderconsulting.com" class="btn" style="background: transparent; color: var(--color-cream); border-color: var(--color-cream);">
+        Or email us
+      </a>
+    </div>
+  </div>
+</section>

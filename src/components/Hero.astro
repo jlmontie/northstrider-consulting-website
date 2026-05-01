@@ -1,0 +1,74 @@
+---
+import Button from "./Button.astro";
+import StarMark from "./StarMark.astro";
+---
+
+<section class="relative overflow-hidden">
+  <div class="bg-constellation absolute inset-0 opacity-50 pointer-events-none"></div>
+
+  <div class="relative mx-auto w-full max-w-7xl px-5 sm:px-8 pt-20 pb-24 sm:pt-28 sm:pb-32 lg:pt-32 lg:pb-40">
+    <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+      <div>
+        <span class="eyebrow">Salesforce consulting · est. 2024</span>
+
+        <h1 class="mt-6 font-[Fraunces,serif] text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] tracking-tight">
+          Salesforce that <em class="italic font-normal text-[color:var(--color-gold)]">earns its keep.</em>
+        </h1>
+
+        <span class="rule-divider mt-8"></span>
+
+        <p class="mt-8 max-w-xl text-lg leading-relaxed text-[color:var(--color-ink-muted)]">
+          We help small and mid-sized teams stand up, untangle, and run Salesforce — so the CRM does the work, your people stop fighting it, and the data you trust drives the next decision.
+        </p>
+
+        <div class="mt-10 flex flex-wrap items-center gap-4">
+          <Button href="/contact" variant="primary">Schedule a consultation</Button>
+          <Button href="/services" variant="gold">See how we work</Button>
+        </div>
+
+        <dl class="mt-14 grid grid-cols-3 gap-6 max-w-lg">
+          <div>
+            <!-- TODO: Replace with real founding year / years of experience -->
+            <dt class="text-xs uppercase tracking-[0.18em] text-[color:var(--color-ink-muted)]">Years in CRM</dt>
+            <dd class="mt-1 font-[Fraunces,serif] text-3xl">10+</dd>
+          </div>
+          <div>
+            <!-- TODO: Replace with real number of certifications across team -->
+            <dt class="text-xs uppercase tracking-[0.18em] text-[color:var(--color-ink-muted)]">Certifications</dt>
+            <dd class="mt-1 font-[Fraunces,serif] text-3xl">6+</dd>
+          </div>
+          <div>
+            <!-- TODO: Replace with real number of completed orgs / projects -->
+            <dt class="text-xs uppercase tracking-[0.18em] text-[color:var(--color-ink-muted)]">Orgs delivered</dt>
+            <dd class="mt-1 font-[Fraunces,serif] text-3xl">--</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="relative hidden lg:block">
+        <div class="relative aspect-[4/5] w-full">
+          <!-- Decorative concentric guides + north star — placeholder visual until real photography or partner illustration is supplied -->
+          <svg viewBox="0 0 400 500" class="absolute inset-0 h-full w-full" aria-hidden="true">
+            <defs>
+              <radialGradient id="hg" cx="50%" cy="40%" r="60%">
+                <stop offset="0%" stop-color="#F0E5C4" stop-opacity="0.55" />
+                <stop offset="100%" stop-color="#FBFAF5" stop-opacity="0" />
+              </radialGradient>
+            </defs>
+            <rect width="400" height="500" fill="url(#hg)" />
+            {[60, 110, 165, 220, 275].map((r) => (
+              <circle cx="200" cy="200" r={r} fill="none" stroke="#D9CDA9" stroke-width="0.7" stroke-dasharray="2 6" />
+            ))}
+            <line x1="200" y1="0" x2="200" y2="500" stroke="#D9CDA9" stroke-width="0.6" stroke-dasharray="2 8" />
+            <line x1="0" y1="200" x2="400" y2="200" stroke="#D9CDA9" stroke-width="0.6" stroke-dasharray="2 8" />
+            <g transform="translate(200 200)">
+              <path d="M0 -90 L8 -8 L90 0 L8 8 L0 90 L-8 8 L-90 0 L-8 -8 Z" fill="#B8923A" />
+              <circle cx="0" cy="0" r="3" fill="#FBFAF5" />
+            </g>
+            <text x="200" y="430" text-anchor="middle" font-family="Fraunces, serif" font-size="13" letter-spacing="6" fill="#58627A">POLARIS</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

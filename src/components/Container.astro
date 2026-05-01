@@ -1,0 +1,18 @@
+---
+interface Props {
+  as?: string;
+  class?: string;
+  max?: "sm" | "md" | "lg" | "xl";
+}
+const { as: Tag = "div", class: className = "", max = "lg" } = Astro.props;
+const maxMap = {
+  sm: "max-w-3xl",
+  md: "max-w-5xl",
+  lg: "max-w-6xl",
+  xl: "max-w-7xl",
+};
+---
+
+<Tag class={`mx-auto w-full px-5 sm:px-8 ${maxMap[max]} ${className}`}>
+  <slot />
+</Tag>

@@ -1,0 +1,22 @@
+{
+  "name": "northstrider-consulting-website",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.2.6",
+    "@astrojs/node": "^9.5.5",
+    "@astrojs/sitemap": "^3.4.1",
+    "@tailwindcss/vite": "^4.1.7",
+    "astro": "^5.8.0",
+    "resend": "^6.12.2",
+    "tailwindcss": "^4.1.7"
+  }
+}

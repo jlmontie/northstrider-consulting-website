@@ -1,0 +1,83 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import CertificationsStrip from "../components/CertificationsStrip.astro";
+import CTABand from "../components/CTABand.astro";
+import StarMark from "../components/StarMark.astro";
+---
+
+<BaseLayout
+  title="About — Northstrider Consulting"
+  description="Northstrider Consulting is a senior-led Salesforce practice helping small and mid-sized teams get more out of their CRM."
+>
+  <PageHeader
+    eyebrow="About"
+    title="A senior-led Salesforce practice."
+    lede="We started Northstrider because the consultants you actually want on a project are usually the ones a big firm won't put on it. Here, they're the only ones who do the work."
+  />
+
+  <section class="section">
+    <div class="mx-auto w-full max-w-5xl px-5 sm:px-8 grid gap-12 md:grid-cols-[1fr_1.4fr] items-start">
+      <div class="relative aspect-[4/5] w-full overflow-hidden rounded border border-[color:var(--color-rule)] bg-[color:var(--color-cream-2)]">
+        {/* TODO: Replace with founder photo (warm, candid; not a stock LinkedIn headshot). */}
+        <div class="absolute inset-0 grid place-items-center text-center p-8">
+          <div>
+            <StarMark size={56} variant="gold" class="mx-auto" />
+            <p class="mt-6 font-[Fraunces,serif] text-lg text-[color:var(--color-ink-2)]">Founder photo</p>
+            <p class="mt-2 text-xs uppercase tracking-[0.18em] text-[color:var(--color-ink-muted)]">Placeholder</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <span class="eyebrow">The founder</span>
+        {/* TODO: Replace with founder name + title once confirmed. */}
+        <h2 class="mt-4 text-3xl sm:text-4xl">[Founder Name]</h2>
+        <p class="mt-2 text-[color:var(--color-ink-muted)]">Principal Consultant · Salesforce [Certifications]</p>
+        <span class="rule-divider mt-6"></span>
+
+        <div class="mt-6 space-y-5 text-base leading-relaxed text-[color:var(--color-ink-2)]">
+          {/* TODO: Founder bio — replace once draft approved. */}
+          <p>
+            [Founder Name] has spent more than a decade in and around Salesforce orgs — first as an in-house admin, then as a senior consultant at [Firm], and now as the founder of Northstrider.
+          </p>
+          <p>
+            The pattern that drove the firm: small and mid-sized teams kept getting the wrong shape of help. Big SIs treated them like miniature enterprise clients; freelance admins couldn't go deep enough on architecture. Northstrider sits in between — senior-led, configure-first, scoped to outcomes.
+          </p>
+          <p>
+            Outside of work: [hobby], [hobby], based in [city].
+          </p>
+        </div>
+
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          {/* TODO: Replace with real LinkedIn / Trailblazer profile / AppExchange links. */}
+          <a class="link-underline text-sm text-[color:var(--color-ink-2)]" href="#">LinkedIn →</a>
+          <a class="link-underline text-sm text-[color:var(--color-ink-2)]" href="#">Trailblazer profile →</a>
+          <a class="link-underline text-sm text-[color:var(--color-ink-2)]" href="#">AppExchange listing →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-[color:var(--color-cream-2)]">
+    <div class="mx-auto w-full max-w-5xl px-5 sm:px-8">
+      <div class="text-center">
+        <span class="eyebrow">Our story</span>
+        <h2 class="mt-4 text-3xl sm:text-4xl">Why Northstrider.</h2>
+        <span class="rule-divider rule-divider-center mt-6"></span>
+      </div>
+      <div class="mx-auto mt-10 max-w-2xl space-y-5 text-base leading-relaxed text-[color:var(--color-ink-2)]">
+        {/* TODO: Replace with the real origin story once approved. */}
+        <p>
+          The name comes from the Norse for the constellation we now call the Big Dipper — the asterism people have used to find Polaris, the north star, for thousands of years. A reliable way to orient yourself when the terrain ahead is unfamiliar.
+        </p>
+        <p>
+          That's the work. We help teams find their bearings inside Salesforce — what to keep, what to retire, what to build next — and then we build it with them.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CertificationsStrip />
+  <CTABand />
+</BaseLayout>

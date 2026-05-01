@@ -1,0 +1,30 @@
+---
+// Placeholder client logo strip — swap text wordmarks for real client logo SVGs once approvals come in.
+const placeholders = [
+  "CLIENT ONE",
+  "CLIENT TWO",
+  "CLIENT THREE",
+  "CLIENT FOUR",
+  "CLIENT FIVE",
+];
+---
+
+<div class="border-y border-[color:var(--color-rule)] bg-[color:var(--color-cream-2)]">
+  <div class="mx-auto w-full max-w-7xl px-5 sm:px-8 py-8">
+    <p class="text-center text-xs uppercase tracking-[0.22em] text-[color:var(--color-ink-muted)]">
+      Trusted by teams at
+    </p>
+    <ul class="mt-6 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-3 md:grid-cols-5 items-center">
+      {
+        placeholders.map((name) => (
+          <li class="flex items-center justify-center">
+            <span class="font-[Fraunces,serif] text-base tracking-[0.25em] text-[color:var(--color-ink-muted)]/70">
+              {name}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+    <!-- TODO: Replace text placeholders with client logo SVGs (grayscale, ~40px tall). -->
+  </div>
+</div>

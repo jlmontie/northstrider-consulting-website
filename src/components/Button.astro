@@ -1,0 +1,28 @@
+---
+interface Props {
+  href?: string;
+  variant?: "primary" | "ghost" | "gold";
+  type?: "button" | "submit" | "reset";
+  class?: string;
+}
+const {
+  href,
+  variant = "primary",
+  type = "button",
+  class: className = "",
+} = Astro.props;
+const cls = `btn btn-${variant} ${className}`;
+---
+
+{
+  href ? (
+    <a href={href} class={cls}>
+      <slot />
+      <span aria-hidden="true" class="inline-block translate-y-px">→</span>
+    </a>
+  ) : (
+    <button type={type} class={cls}>
+      <slot />
+    </button>
+  )
+}
