@@ -1,10 +1,35 @@
+# Dependencies
 node_modules/
+
+# Astro / Vite — production build and local cache
+# (dist = `astro build`; .astro = dev cache & generated types)
 dist/
 .astro/
+
+# Vercel CLI — local build output and link metadata
+.vercel/
+
+# Environment — secrets stay local; template stays in repo
 .env
 .env.*
 !.env.example
-.DS_Store
-.vscode/
-.idea/
+
+# Package manager & generic logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 *.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors (remove `.vscode/` if you commit shared workspace settings)
+.idea/
+.vscode/
+
+# Tooling caches (tests / TypeScript / ESLint)
+*.tsbuildinfo
+.eslintcache
+coverage/
