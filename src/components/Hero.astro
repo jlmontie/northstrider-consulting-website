@@ -1,6 +1,6 @@
 ---
 import Button from "./Button.astro";
-import StarMark from "./StarMark.astro";
+import Mountains from "./Mountains.astro";
 ---
 
 <section class="relative overflow-hidden">
@@ -46,27 +46,26 @@ import StarMark from "./StarMark.astro";
       </div>
 
       <div class="relative hidden lg:block">
-        <div class="relative aspect-[4/5] w-full">
-          <!-- Decorative concentric guides + north star — placeholder visual until real photography or partner illustration is supplied -->
-          <svg viewBox="0 0 400 500" class="absolute inset-0 h-full w-full" aria-hidden="true">
-            <defs>
-              <radialGradient id="hg" cx="50%" cy="40%" r="60%">
-                <stop offset="0%" stop-color="#F0E5C4" stop-opacity="0.55" />
-                <stop offset="100%" stop-color="#FBFAF5" stop-opacity="0" />
-              </radialGradient>
-            </defs>
-            <rect width="400" height="500" fill="url(#hg)" />
-            {[60, 110, 165, 220, 275].map((r) => (
-              <circle cx="200" cy="200" r={r} fill="none" stroke="#D9CDA9" stroke-width="0.7" stroke-dasharray="2 6" />
-            ))}
-            <line x1="200" y1="0" x2="200" y2="500" stroke="#D9CDA9" stroke-width="0.6" stroke-dasharray="2 8" />
-            <line x1="0" y1="200" x2="400" y2="200" stroke="#D9CDA9" stroke-width="0.6" stroke-dasharray="2 8" />
-            <g transform="translate(200 200)">
-              <path d="M0 -90 L8 -8 L90 0 L8 8 L0 90 L-8 8 L-90 0 L-8 -8 Z" fill="#B8923A" />
-              <circle cx="0" cy="0" r="3" fill="#FBFAF5" />
-            </g>
-            <text x="200" y="430" text-anchor="middle" font-family="Fraunces, serif" font-size="13" letter-spacing="6" fill="#58627A">POLARIS</text>
-          </svg>
+        <div
+          class="relative flex min-h-[min(72vh,560px)] w-full items-center justify-center overflow-hidden bg-[color:var(--color-cream)]"
+        >
+          <div
+            class="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_65%_55%_at_50%_40%,rgba(240,229,196,0.55)_0%,rgba(251,250,245,0)_65%)]"
+            aria-hidden="true"
+          />
+          <img
+            src="/ridges.svg"
+            alt=""
+            width={1200}
+            height={240}
+            class="pointer-events-none absolute inset-x-[-8%] bottom-0 z-[1] h-[42%] min-h-[140px] w-[116%] max-w-none select-none object-cover object-bottom opacity-[0.85]"
+            aria-hidden="true"
+            loading="eager"
+            decoding="async"
+          />
+          <div class="relative z-10 mx-auto flex w-full max-w-lg items-center justify-center px-6 py-16">
+            <Mountains decorative class="w-full max-w-[min(100%,420px)] h-auto sm:max-w-[480px]" />
+          </div>
         </div>
       </div>
     </div>

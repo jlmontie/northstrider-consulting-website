@@ -3,7 +3,6 @@ import { getCollection, render } from "astro:content";
 import type { GetStaticPaths } from "astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTABand from "../../components/CTABand.astro";
-import StarMark from "../../components/StarMark.astro";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const studies = await getCollection("caseStudies");
