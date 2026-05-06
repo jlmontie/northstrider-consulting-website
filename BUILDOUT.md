@@ -108,10 +108,17 @@ Principles → Certifications → CTA**.
 
 ### Phase 2 — Productionize (concurrent with Phase 1)
 
-- [ ] **Domain**
-  - [ ] Point `peregrinesys.com` and `www.` at Vercel (A/CNAME records per Vercel docs)
-  - [ ] Confirm `https://` enforced and www → apex (or apex → www) redirect set in Vercel
-  - [ ] Verify production deployment loads at the real domain
+- [x] **Domain** — live at `https://www.peregrinesys.com/` as of 2026-05-06.
+  - [x] DNS pointed at Vercel: apex `A → 216.198.79.1`, `www CNAME →
+        cname.vercel-dns.com`. Squarespace nameservers retained; A/CNAME records
+        updated in the Squarespace DNS panel rather than swapping nameservers.
+        (Old Squarespace site at the apex decommissioned.)
+  - [x] HTTPS enforced (cert auto-issued by Vercel; SAN covers apex and www) and
+        apex → www redirect configured in Vercel (returns 307 to www).
+  - [x] Production verified: `www.peregrinesys.com` serves the Astro site
+        (latest commit), apex 307s to www. Astro `site` in `astro.config.mjs`
+        bumped to `https://www.peregrinesys.com` so `<link rel="canonical">`,
+        `og:url`, and the generated sitemap all match the redirect target.
 - [ ] **Email (Resend)**
   - [ ] Add `peregrinesys.com` as a domain in Resend
   - [ ] Add the SPF/DKIM/DMARC DNS records the Resend dashboard provides
@@ -185,8 +192,9 @@ there yet.
 4. Email aliases — code currently defaults destination to `team@peregrinesys.com`
    (`CONTACT_TO_EMAIL`) and sender to `Peregrine Systems <hello@peregrinesys.com>`
    (`CONTACT_FROM_EMAIL`). Confirm both, or specify alternates.
-5. Is there a domain registrar/DNS account we have access to, or do we need to send the
-   client DNS records to add themselves?
+5. ~~Is there a domain registrar/DNS account we have access to, or do we need to send the
+   client DNS records to add themselves?~~ *Resolved 2026-05-06: DNS managed at
+   Squarespace; A/CNAME records updated directly to point at Vercel.*
 6. Are they OK with cookieless analytics (Plausible, ~$9/mo) or do they want GA4 (free)?
 7. Privacy policy: do they have an existing one we should reuse, or write a minimal one?
 8. Vertical / industry focus — even a tentative answer here unlocks much stronger copy
@@ -409,5 +417,6 @@ These block specific Phase B/C/D execution.
 4. **Employee list** — for the LinkedIn cert scrape and lead-name surfacing on About.
 5. Confirmation that **GitHub, Komatsu, Splunk** are accurate "prior work with"
    relationships (firm- or employee-level), and any others to add.
-6. Domain decision — `peregrinesystems.io` vs `peregrinesys.com`. Gates Phase 2
-   DNS + Resend domain verification.
+6. ~~Domain decision — `peregrinesystems.io` vs `peregrinesys.com`.~~ *Resolved
+   2026-05-06: `peregrinesys.com` selected and live with `www.` as the canonical
+   host (apex 307s to www). Resend domain verification still pending.*
